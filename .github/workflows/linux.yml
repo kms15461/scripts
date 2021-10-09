@@ -14,7 +14,8 @@ jobs:
     - name: download and linux commit
       run: wget https://github.com/kms15461/linux/archive/$(git rev-parse @:./linux).zip -O linux.zip
 
-    - name: unzip and build linux
-      run: |
-        unzip linux.zip
-        ./build-linux.sh linux-$(git rev-parse @:./linux) tinyconfig
+    - name: unzip linux
+      run: unzip linux.zip
+      
+    - name: build linux
+      run: ./build-linux.sh linux-$(git rev-parse @:./linux) tinyconfig
