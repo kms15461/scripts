@@ -11,6 +11,9 @@ jobs:
     - name : Checkout
       uses: actions/checkout@v2
       
+    - name: Download gcc-8
+      run: sudo apt-get install gcc-8
+      
     - name: download and linux commit
       run: wget https://github.com/kms15461/linux/archive/$(git rev-parse @:./linux).zip -O linux.zip
 
