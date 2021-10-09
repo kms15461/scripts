@@ -1,0 +1,21 @@
+name: linux
+on:
+  push:
+    paths: 
+      - linux
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name : Checkout
+      uses: actions/checkout@v2
+      
+    - name: download and linux commit
+      run: wget -O linux.zip https://github.com/kms15461/linux/archive/$(git rev-parse @:./linux).zip
+
+    - name: unzip and build linux
+      run:      
+        unzip linux.zip
+        ./install-deps.sh
+        ./build-linux.sh linux-$(git rev-parse @:./linux) tinyconfig
