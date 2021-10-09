@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2
       
     - name: download and linux commit
-      run: wget -O linux.zip https://github.com/kms15461/linux/archive/$(git rev-parse @:./linux).zip
+      run: wget https://github.com/kms15461/linux/archive/$(git rev-parse @:./linux).zip -O linux.zip
 
     - name: unzip and build linux
       run:      
